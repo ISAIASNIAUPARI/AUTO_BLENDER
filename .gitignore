@@ -1,0 +1,6 @@
+# Blender backups / temporales
+*.blend1
+*.blend2
+*.blend@
+/tmp/
+__pycache__/

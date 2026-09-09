@@ -1,44 +1,32 @@
-# AUTO_BLENDER — Proyecto de auto deportivo procedural
+# AUTO_BLENDER — Escena comparativa de viviendas
 
-Este repositorio contiene el trabajo hecho en una sesión de Claude Code usando el MCP de Blender: un auto deportivo estilizado (inspirado en un Porsche 911) construido **100% por código Python/bpy** — carrocería por secciones transversales, arcos de rueda cortados con boolean, interior, luces, vidrios y materiales.
+Escena 3D en Blender que compara tres tipos de vivienda a la misma escala:
 
-## Contenido
+| Bloque | Descripción |
+|--------|-------------|
+| **MANSION** | Mansión neoclásica con pórtico, alas laterales, jardines, piscina, fuente y muro perimetral |
+| **CASA + GARAJE** | Casa de una planta amueblada + garaje (planta abierta, sin coche) |
+| **APARTAMENTO 3 DORM.** | Apartamento de 3 dormitorios amueblado (planta abierta) |
 
-- `porsche_project.blend` — el archivo de Blender con la escena completa (carrocería, ruedas, interior, luces, cámara).
-- `build_car.py` — script Python standalone que reconstruye el auto desde cero dentro de Blender (por si el `.blend` se pierde o se corrompe).
-- `renders/` — capturas de referencia del resultado (vista 3/4 y vista lateral).
+![Vista comparativa](renders/comparativa.png)
 
-## Cómo restaurar esto en Blender
+## Contenido del repositorio
 
-### Opción A — Abrir el archivo directamente (más rápido)
-1. Abre Blender.
-2. `Archivo > Abrir` → selecciona `porsche_project.blend`.
-3. Listo, la escena completa se carga tal cual quedó.
+```
+assets/scene.blend        Archivo Blender COMPLETO y autocontenido (Blender 5.2.1 LTS, EEVEE)
+exports/COMPARATIVA.glb   Export glTF de la escena COMPARATIVA (solo para previsualizar)
+renders/comparativa.png   Render de referencia de la escena COMPARATIVA
+RESTORE.md                Instrucciones paso a paso para restaurar la escena en otra sesión
+CLAUDE.md                 Contexto que Claude Code lee automáticamente al abrir el repo
+```
 
-### Opción B — Reconstruir desde cero con el script
-Si prefieres reconstruir todo desde código (por ejemplo, para seguir iterando con Claude + MCP de Blender):
+## Restaurar en 1 paso
 
-1. Abre Blender con una escena vacía.
-2. Ve a la pestaña **Scripting**.
-3. Abre `build_car.py` y ejecútalo (▶ Run Script), o pégalo en la consola Python.
-4. El script limpia la escena y reconstruye: carrocería (12 estaciones transversales), arcos de rueda (boolean), ruedas, vidrios, luces, interior, materiales, cámara e iluminación de estudio.
+`assets/scene.blend` contiene TODO (geometría, materiales, cámaras, luces, 4 escenas).
+No hay archivos externos ni texturas enlazadas: la única imagen es "Render Result" (generada).
 
-### Opción C — Restaurar vía MCP con Claude
-Si estás trabajando con Claude Code + el MCP de Blender, simplemente pide:
+1. Abre `assets/scene.blend` en Blender 5.2.1 o superior — o pídeselo al MCP de Blender.
+2. La escena activa es **COMPARATIVA** (cámara `C_Cam`). Cambia entre escenas con el
+   selector de escena de la cabecera: `COMPARATIVA`, `MANSION`, `PLAN_A`, `PLAN_B`.
 
-> "Abre el archivo porsche_project.blend de este repo en Blender"
-
-o
-
-> "Ejecuta build_car.py en Blender para reconstruir el auto"
-
-## Notas técnicas
-
-- La carrocería usa una técnica de **secciones transversales (bmesh)**: 12 estaciones a lo largo del eje X, cada una con un anillo de 8 vértices, conectadas para formar la silueta lateral tipo fastback.
-- Los **arcos de rueda** están cortados con un modifier Boolean (solver `FLOAT`, más estable que `EXACT` en esta versión de Blender — `EXACT` causó un crash de Blender durante el desarrollo).
-- Motor de render probado: EEVEE.
-- Todas las posiciones de detalles (luces, escape, spoiler, vidrios) fueron verificadas con raycast contra la malla evaluada (post-modifiers) para evitar que queden flotando separados de la carrocería.
-
-## Estado del proyecto
-
-Interpretación estilizada de un auto deportivo — **no es una réplica exacta** de ninguna foto de referencia. La silueta, los arcos de rueda integrados y las proporciones generales están correctas; algunos detalles menores (nariz, acabados) quedan pendientes de pulir.
+Si trabajas con un agente (Claude Code + MCP de Blender), lee **[RESTORE.md](RESTORE.md)**.
