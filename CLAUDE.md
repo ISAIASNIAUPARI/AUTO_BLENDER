@@ -8,7 +8,7 @@ Blender" o similar:
    `bpy.ops.wm.open_mainfile()` restaura el 100% del estado (archivo autocontenido,
    Blender 5.2.1 LTS, EEVEE).
 3. Verifica con el bloque de comprobación de RESTORE.md: 4 escenas
-   (`COMPARATIVA`, `MANSION`, `PLAN_A`, `PLAN_B`), 648 objetos, 41 materiales.
+   (`COMPARATIVA`, `MANSION`, `PLAN_A`, `PLAN_B`), 648 objetos, 40 materiales.
 
 ## Reglas
 

@@ -32,7 +32,7 @@ chk = {
     "blender": bpy.app.version_string,           # esperado: "5.2.1 LTS" o superior
     "escenas": sorted(s.name for s in bpy.data.scenes),
     "objetos_totales": len(bpy.data.objects),    # esperado: 648
-    "materiales": len(bpy.data.materials),       # esperado: 41
+    "materiales": len(bpy.data.materials),       # esperado: 40
     "escena_activa": bpy.context.window.scene.name,
     "cam_comparativa": bpy.data.scenes["COMPARATIVA"].camera.name,  # esperado: "C_Cam"
 }
@@ -45,7 +45,7 @@ Valores esperados:
 |-------|-------|
 | escenas | `['COMPARATIVA', 'MANSION', 'PLAN_A', 'PLAN_B']` |
 | objetos_totales | `648` |
-| materiales | `41` |
+| materiales | `40` |
 | cam_comparativa | `C_Cam` |
 
 ### Escenas y su contenido
