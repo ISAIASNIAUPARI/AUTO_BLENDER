@@ -39,3 +39,13 @@ Sección "Camiseta técnica Academy" en `londres-jet.vercel.app` (componente `Sh
 El `face_limit` en la generación evitó tener que decimar en Blender — para un objeto
 simple (una prenda) 22 k tris ya es suficiente. Para personajes con más detalle
 (ver `komi/`) sí conviene el paso por Blender o subir el face_limit.
+
+## Referencia cruzada
+
+Este diseño es **caso de referencia del cerebro de Obsidian**:
+`OneDrive/Obsidian Vault/PROTOCOLO_WEB_3D/` → nota `09 — Caso de referencia, camiseta Nike 3D`.
+Los mismos archivos están duplicados ahí en `_recursos/camiseta/` para tenerlos a mano
+sin depender de este repo.
+
+Web viva: https://londres-jet.vercel.app (sección "Camiseta técnica Academy").
+Modelo servido: `https://res.cloudinary.com/foewxv45/raw/upload/v1788974257/web_con_animacion/camiseta_web.glb`
